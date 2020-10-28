@@ -118,7 +118,9 @@ func main() {
 
 		// Decode
 		s := stats[int(msgType[0])]
-		if s.Name == "" {
+		if int(msgType[0]) >= len(typeNames) {
+			s.Name = string(msgType[0])
+		} else {
 			s.Name = typeNames[int(msgType[0])]
 		}
 
